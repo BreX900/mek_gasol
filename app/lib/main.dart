@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mek_gasol/firebase_options.dart';
 import 'package:mek_gasol/presentation/features/matches.dart';
 import 'package:mek_gasol/presentation/features/players.dart';
+import 'package:mek_gasol/presentation/features/teams.dart';
 import 'package:mek_gasol/shared/hub.dart';
 
 void main() {
@@ -44,8 +45,9 @@ class MyApp extends StatelessWidget {
       home: CupertinoTabScaffold(
         tabBar: CupertinoTabBar(
           items: const [
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.doc)),
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.map)),
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.bolt_fill)),
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.person_alt_circle)),
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.person_3)),
           ],
         ),
         tabBuilder: (context, index) {
@@ -54,6 +56,8 @@ class MyApp extends StatelessWidget {
               return const MatchesScreen();
             case 1:
               return const PlayersScreen();
+            case 2:
+              return const TeamsScreen();
           }
           throw 'Not supported tab: $index';
         },
